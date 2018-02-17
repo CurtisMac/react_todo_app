@@ -1,27 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
-import TodoList from '../TodoList/todoList'
-import AddTask from '../TodoList/Add/add'
-import DeleteTasks from '../TodoList/Delete/delete'
+import '../globalStyles.css'
+import TodoList from '../TodoList/todoList';
+import AddTask from '../TodoList/Add/add';
+import DeleteTasks from '../TodoList/Delete/delete';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      tasks: [
-        {
-          text: 'Clean house',
-          complete: false
-        },
-        {
-          text: 'File taxes',
-          complete: false
-        }
-      ]
+      tasks: []
     }
   }
 
-  addTask = (newTask)=>{
+  addTask = (newTask) => {
     let updatedTasks = this.state.tasks
     updatedTasks.push({
       text: newTask,
@@ -37,14 +28,13 @@ class App extends Component {
     updatedTasks[id].complete = !updatedTasks[id].complete
     this.setState({
       tasks: updatedTasks
-    }, () => { console.log(`Is ${this.state.tasks[id].text} complete? ${this.state.tasks[id].complete}`) }
-    )
+    })
   }
- 
-  deleteTasks = (updatedTasks)=>{
+
+  deleteTasks = (updatedTasks) => {
     this.setState({
       tasks: updatedTasks
-    }, () => { console.log(this.state.tasks)})
+    })
   }
 
   render() {
@@ -54,8 +44,8 @@ class App extends Component {
           <h1 className="App-title">Time to <em>DO</em> some things!</h1>
         </header>
         <TodoList tasks={this.state.tasks} complete={this.complete} />
-        <AddTask addTask={this.addTask}/>
-        <DeleteTasks deleteTasks={this.deleteTasks} tasks={this.state.tasks}/>
+        <AddTask addTask={this.addTask} />
+        <DeleteTasks deleteTasks={this.deleteTasks} tasks={this.state.tasks} />
       </div>
     );
   }

@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../../globalStyles.css'
 
 class AddTask extends Component {
-
-
     submit = (e) => {
         e.preventDefault()
         let text = this.newText.value
@@ -16,10 +15,10 @@ class AddTask extends Component {
 
     render() {
         return (
-            <form>
+            <form className='addTaskForm'>
                 <label htmlFor='newTask'>New Task: </label>
                 <input type='text' id='newTask' ref={(input) => { this.newText = input }}></input>
-                <button type='submit' onClick={this.submit}>Submit</button>
+                <button type='submit' onClick={this.submit}>Add</button>
             </form>
         )
     }

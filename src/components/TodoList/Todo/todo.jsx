@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import '../../globalStyles.css';
 
 class Todo extends Component {
     render() {
@@ -11,8 +12,11 @@ class Todo extends Component {
         }
 
         return (
-            <div style={lineThrough}>
-                <input type='checkbox' checked={task.complete} id={this.props.id} onChange={()=>{this.props.complete(this.props.id)}}></input>
+            <div style={lineThrough} className='todo'>
+                <input  type='checkbox' 
+                        checked={task.complete} id={this.props.id} 
+                        onChange={()=>{this.props.complete(this.props.id)}}>
+                </input>
                 <label htmlFor={this.props.id}>{task.text}</label>
             </div>
         )
