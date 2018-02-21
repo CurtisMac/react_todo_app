@@ -21,6 +21,7 @@ class App extends Component {
     this.setState({
       tasks: updatedTasks
     })
+    localStorage.setItem('tasks', JSON.stringify(this.state.tasks))
   }
 
   complete = (id) => {
@@ -35,6 +36,14 @@ class App extends Component {
     this.setState({
       tasks: updatedTasks
     })
+  }
+
+  componentWillMount(){
+    let tasks = JSON.parse(localStorage.tasks)
+    this.setState({
+      tasks
+    })
+    console.log(tasks)
   }
 
   render() {
